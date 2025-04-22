@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - HappyPaws</title>
+    <link rel="stylesheet" href="css/agendamento.css" />
+    
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <div class="header-content">
+                <div class="logo-header">Happy<span>Pets</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/api/agendamentos">Ver Meus Agendamentos</a></li><li><a href="agendamento.html">Agendamentos</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Agendamento de Serviços</h1>
+        
+        <form id="agendamentoForm" action="http://localhost:3000/api/agendamentos" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="petName" class="required">Nome do Pet</label>
+                <input type="text" id="petName" name="petName" required>
+                <div class="error-message" id="petNameError">Por favor, insira o nome do pet</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="petBreed" class="required">Raça</label>
+                <input type="text" id="petBreed" name="petBreed" required>
+                <div class="error-message" id="petBreedError">Por favor, insira a raça do pet</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="serviceType">Tipo de Serviço</label>
+                <select id="serviceType" name="serviceType">
+                    <option value="banho">Banho</option>
+                    <option value="tosa">Tosa</option>
+                    <option value="banho-tosa">Banho e Tosa</option>
+                    <option value="veterinario">Consulta Veterinária</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="appointmentDate" class="required">Data</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                <div class="error-message" id="appointmentDateError">Por favor, selecione uma data</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="appointmentTime" class="required">Horário</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" min="08:00" max="18:00" required>
+                <div class="error-message" id="appointmentTimeError">Por favor, selecione um horário entre 8h e 18h</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="petImage" class="required">Foto do Pet</label>
+                <div class="file-upload">
+                    <label for="petImage" class="file-upload-label">
+                        Clique para selecionar uma imagem
+                        <input type="file" id="petImage" name="petImage" accept="image/*" required>
+                    </label>
+                    <div class="file-name" id="fileName">Nenhum arquivo selecionado</div>
+                </div>
+                <div class="error-message" id="petImageError">Por favor, selecione uma imagem do pet</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="observations">Observações</label>
+                <textarea id="observations" name="observations" placeholder="Informe qualquer detalhe importante sobre seu pet..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">Agendar</button>
+        </form>
+    </div>
+</body>
+</html>
